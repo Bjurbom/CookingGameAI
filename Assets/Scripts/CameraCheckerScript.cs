@@ -1,8 +1,15 @@
+using TMPro;
 using UnityEngine;
 
 public class CameraCheckerScript : MonoBehaviour
 {
     static CameraCheckerScript instance;
+    GameObject playerObject;
+
+    [SerializeField]
+    private float smoothTime = 1f;
+    Vector3 currentVelocity;
+
     private void Awake()
     {
         if (instance == null)
@@ -13,6 +20,18 @@ public class CameraCheckerScript : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (playerObject == null)
+        {
+            playerObject = GameObject.FindWithTag("Player");
+        }
+        else if (WorldState.animationDone)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, playerObject.transform.position + new Vector3(0, 0, -10), ref currentVelocity, smoothTime);
         }
     }
 }

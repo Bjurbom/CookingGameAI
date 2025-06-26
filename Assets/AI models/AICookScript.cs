@@ -77,8 +77,7 @@ public class AICookScript : MonoBehaviour
             Debug.LogError("Failed to generate image. Is your local Stable Diffusion server running with the --api flag?");
         }
 
-        SetUIState(isGenerating: false);
-    }
+        SetUIState(isGenerating: false);    }
 
     private async Task<Texture2D> GetGeneratedImage(string prompt)
     {

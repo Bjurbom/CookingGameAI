@@ -6,9 +6,6 @@ using System.Text;
 using System;
 using System.Collections.Generic;
 
-// --- C# Classes to Match the CORRECT OpenAI-compatible Chat API Structure ---
-// These now perfectly match the JSON response you received from Ollama.
-
 [System.Serializable]
 public class LlmChatMessage
 {

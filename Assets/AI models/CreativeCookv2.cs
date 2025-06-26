@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq; //used for string.join
 
+//TODO - Add a text box for the food description genereated by the LLM
+
 #region API Data 
 //Data for Llama LLM
 [System.Serializable]

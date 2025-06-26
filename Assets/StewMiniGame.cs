@@ -27,6 +27,18 @@ public class StewMiniGame : MonoBehaviour, Interaction
 
 
     bool gameCompleted;
+
+    HitObject hitObject;
+    StewMiniGameSystem system;
+
+
+    private void Start()
+    {
+        hitObject = indicator.GetComponentInChildren<HitObject>();
+        system = indicator.GetComponent<StewMiniGameSystem>();
+    }
+
+
     public void Interact()
     {
         if (playOnce)
@@ -45,9 +57,6 @@ public class StewMiniGame : MonoBehaviour, Interaction
         timeWhenStarted = Time.time;
         IngriedientPopUp.SetActive(true);
         textInformation.SetActive(true);
-        //Start MiniGame
-        //Click over a certain Time
-        //5 seconds
     }
 
     private void Update()
@@ -57,15 +66,26 @@ public class StewMiniGame : MonoBehaviour, Interaction
             return;
         }
 
-        if (Input.GetKey(KeyCode.P))
-        {
+        indicator.SetActive(true);
 
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            hitObject.SeeIfHit();
+            
+        }
+
+        if (system.Over)
+        {
+            gameCompleted = true;
         }
 
 
 
         if (gameCompleted)
         {
+            gameCompleted = false;
+            indicator.SetActive(false);
+            system.Start();
             startGame = false;
             controller.enabled = true;
             textInformation.SetActive(false);

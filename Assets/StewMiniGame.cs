@@ -1,8 +1,7 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class SliceMiniGame : MonoBehaviour, Interaction
+public class StewMiniGame : MonoBehaviour, Interaction
 {
     PlayerController controller;
     bool startGame = false;
@@ -12,15 +11,28 @@ public class SliceMiniGame : MonoBehaviour, Interaction
     GameObject IngriedientPopUp;
     [SerializeField]
     TMP_Text textToDisplay;
-    int amountOfPresses;
+    [SerializeField]
+    GameObject indicator;
+    float amountOfPresses;
     float timeWhenStarted;
+
+    [SerializeField]
+    float toHotAmount, justRight, coldDown;
+
+    float tempature = 0f;
+    float toHotTempature = 0f;
+    
     public bool playOnce = false;
-    int chopAmount = 100;
+    public float barAmount;
+
+
+    bool gameCompleted;
     public void Interact()
     {
-        if (playOnce) {
-            return; 
-        
+        if (playOnce)
+        {
+            return;
+
         }
         playOnce = true;
 
@@ -43,26 +55,23 @@ public class SliceMiniGame : MonoBehaviour, Interaction
         if (!startGame || IngriedientPopUp.gameObject.active == true)
         {
             return;
-        }   
-        if (Input.GetKeyDown(KeyCode.P)) 
-        {
-            amountOfPresses++;
         }
 
-        int amountOfChopsLeft = chopAmount - amountOfPresses;
+        if (Input.GetKey(KeyCode.P))
+        {
 
-        textToDisplay.text = $"{amountOfChopsLeft} More Chops left \n Press P!!!";
+        }
 
-        if (amountOfChopsLeft <= 0)
+
+
+        if (gameCompleted)
         {
             startGame = false;
             controller.enabled = true;
             textInformation.SetActive(false);
             textToDisplay.text = "";
             amountOfPresses = 0;
-
         }
 
     }
-
 }

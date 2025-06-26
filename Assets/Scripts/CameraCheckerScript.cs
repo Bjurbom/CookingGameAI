@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraCheckerScript : MonoBehaviour
 {
     static CameraCheckerScript instance;
-    GameObject playerObject;
+    public GameObject playerObject;
 
     [SerializeField]
     private float smoothTime = 1f;

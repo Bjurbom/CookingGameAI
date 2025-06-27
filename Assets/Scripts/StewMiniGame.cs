@@ -19,6 +19,10 @@ public class StewMiniGame : MonoBehaviour, Interaction
     [SerializeField]
     float toHotAmount, justRight, coldDown;
 
+    [SerializeField]
+    Animator stickAnimator;
+
+
     public bool playOnce = false;
     public float barAmount;
 

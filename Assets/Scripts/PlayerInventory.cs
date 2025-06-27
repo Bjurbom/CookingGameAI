@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -11,6 +12,16 @@ public class PlayerInventory : MonoBehaviour
     bool doneGenerating = false;
     public bool HaveCake = false;
 
+    [SerializeField]
+    CreativeCookv2 creativeCookv2;
+
+
+    public void AddIngredient(string nameOfIng)
+    {
+        creativeCookv2.currentIngredients.Add(nameOfIng, 1);
+    }
+
+
     private void Update()
     {
         if (amountOfIngredientRequierdToMake <= ingriedientNames.Count && !startedGenerating)
@@ -19,16 +30,12 @@ public class PlayerInventory : MonoBehaviour
             StartCoroutine("GeneratingImage");
             Debug.Log("Generating");
         }
-
-        if (HaveCake)
-        {
-            ResetList();
-        }
     }
 
-    IEnumerator GeneratingImage()
+    private IEnumerator GeneratingImage()
     {
-        yield return new WaitForSeconds(10f); //Generate the image here
+        Task task = creativeCookv2.CookWithIngredients();
+        yield return new WaitUntil(() => task.IsCompleted); ; //Generate the image here
         Debug.Log("Done");
         HaveCake = true;
         doneGenerating = true;

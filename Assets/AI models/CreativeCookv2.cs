@@ -55,13 +55,13 @@ public class CreativeCookv2 : MonoBehaviour
     [Tooltip("Add all your ingredient buttons here.")]
     [SerializeField] private Button[] ingredientButtons;
 
-    private Dictionary<string, int> currentIngredients = new Dictionary<string, int>();
+    public Dictionary<string, int> currentIngredients = new Dictionary<string, int>();
 
     void Start()
     {
         // Setup button listeners
-        cookButton.onClick.AddListener(CookWithIngredients);
-        closePreview.onClick.AddListener(HideDishPreview);
+        //cookButton?.onClick.AddListener(CookWithIngredients);
+        closePreview?.onClick.AddListener(HideDishPreview);
 
         foreach (var button in ingredientButtons)
         {
@@ -71,7 +71,7 @@ public class CreativeCookv2 : MonoBehaviour
         }
 
         if (loadingIndicator) loadingIndicator.SetActive(false);
-        UpdateIngredientListUI();
+        //UpdateIngredientListUI();
     }
 
    
@@ -88,7 +88,7 @@ public class CreativeCookv2 : MonoBehaviour
             currentIngredients.Add(ingredient, 1);
         }
 
-        UpdateIngredientListUI();
+        //UpdateIngredientListUI();
     }
 
     public void ClearIngredients()
@@ -116,7 +116,7 @@ public class CreativeCookv2 : MonoBehaviour
         }
     }
 
-    private async void CookWithIngredients()
+    public async Task CookWithIngredients()
     {
         if (currentIngredients.Count == 0)
         {

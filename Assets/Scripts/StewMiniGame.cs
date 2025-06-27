@@ -22,6 +22,7 @@ public class StewMiniGame : MonoBehaviour, Interaction
     [SerializeField]
     Animator stickAnimator;
 
+    
 
     public bool playOnce = false;
     public float barAmount;
@@ -37,6 +38,7 @@ public class StewMiniGame : MonoBehaviour, Interaction
     {
         hitObject = indicator.GetComponentInChildren<HitObject>();
         system = indicator.GetComponent<StewMiniGameSystem>();
+        stickAnimator = GetComponentInChildren<Animator>();
     }
 
 
@@ -58,6 +60,7 @@ public class StewMiniGame : MonoBehaviour, Interaction
         timeWhenStarted = Time.time;
         IngriedientPopUp.SetActive(true);
         textInformation.SetActive(true);
+        stickAnimator.SetBool("StickMoving", true);
     }
 
     private void Update()
@@ -68,6 +71,8 @@ public class StewMiniGame : MonoBehaviour, Interaction
         }
 
         indicator.SetActive(true);
+
+
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -80,10 +85,11 @@ public class StewMiniGame : MonoBehaviour, Interaction
             gameCompleted = true;
         }
 
-
+        
 
         if (gameCompleted)
         {
+            stickAnimator.SetBool("StickMoving", false);
             gameCompleted = false;
             indicator.SetActive(false);
             system.Start();

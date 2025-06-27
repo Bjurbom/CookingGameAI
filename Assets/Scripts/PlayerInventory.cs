@@ -8,7 +8,7 @@ public class PlayerInventory : MonoBehaviour
     public List<string> ingriedientNames= new List<string>();
 
     [SerializeField] int amountOfIngredientRequierdToMake;
-    bool startedGenerating = false;
+    public bool startedGenerating = false;
     public bool doneGenerating = false;
     public bool HaveCake = false;
 
@@ -40,7 +40,6 @@ public class PlayerInventory : MonoBehaviour
         yield return new WaitUntil(() => task.IsCompleted); ; //Generate the image here
         Debug.Log("Done");
         doneGenerating = true;
-        startedGenerating = false;
         yield return null;
     }
 

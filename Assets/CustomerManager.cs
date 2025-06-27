@@ -25,6 +25,7 @@ public class CustomerManager : MonoBehaviour, Interaction
         {
             timeObject.AddTime(Random.Range(10f,30f));
             inventory.HaveCake = false;
+            inventory.startedGenerating = false;
             creativeCookv2.ClearIngredients();
             customerObject.GetComponent<Animator>().SetTrigger("NewCustomer");
         }

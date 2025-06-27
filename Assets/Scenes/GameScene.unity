@@ -344,6 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingriedientNames: []
+  amountOfIngredientRequierdToMake: 0
 --- !u!1 &114659633
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +870,7 @@ GameObject:
   - component: {fileID: 357617211}
   - component: {fileID: 357617213}
   - component: {fileID: 357617212}
+  - component: {fileID: 357617214}
   m_Layer: 5
   m_Name: Money Amount
   m_TagString: Untagged
@@ -915,10 +917,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Money 0/5
+  m_text: 'ingredients:\n '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c7429439e43e4e545b3cf0c0ed052652, type: 2}
+  m_sharedMaterial: {fileID: -8089758873517072235, guid: c7429439e43e4e545b3cf0c0ed052652, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -980,7 +982,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -332.172, w: -254.20032}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -994,6 +996,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357617210}
   m_CullTransparentMesh: 1
+--- !u!114 &357617214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357617210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d8655b76600fc4585b406737253eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 106298934}
 --- !u!1 &364074199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,7 +2043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &869915478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2347,6 +2362,7 @@ GameObject:
   - component: {fileID: 984963450}
   - component: {fileID: 984963452}
   - component: {fileID: 984963451}
+  - component: {fileID: 984963453}
   m_Layer: 5
   m_Name: Time Amount
   m_TagString: Untagged
@@ -2395,8 +2411,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c7429439e43e4e545b3cf0c0ed052652, type: 2}
+  m_sharedMaterial: {fileID: -8089758873517072235, guid: c7429439e43e4e545b3cf0c0ed052652, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2472,6 +2488,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984963449}
   m_CullTransparentMesh: 1
+--- !u!114 &984963453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984963449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c921238bd6a8d44b86d4aef1667c685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeTheEndOfGame: 120
 --- !u!1 &1070440417
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,6 +4478,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textObject: {fileID: 1792069374}
   amountOfIngredientNeeded: 3
+  sliceMinigame: {fileID: 1714895777}
+  stewMinigame: {fileID: 338591576}
 --- !u!1 &2108730094
 GameObject:
   m_ObjectHideFlags: 0

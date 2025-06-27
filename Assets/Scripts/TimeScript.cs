@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeScript : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class TimeScript : MonoBehaviour
 
     public void AddTime(float addMoreTime)
     {
-        timeRemaining += addMoreTime;
+        timeBeforeTheEndOfGame += addMoreTime;
     }
 
     private void Start()
@@ -32,5 +33,10 @@ public class TimeScript : MonoBehaviour
         int minuteDisplay = (int)(timeRemaining / 60f);
         int secondsDisplay = (int)(timeRemaining % 60f);
         text.text = $"{minuteDisplay}:{secondsDisplay}";
+
+        if (timeRemaining <= 0f)
+        {
+            SceneManager.LoadScene("SampleScene",LoadSceneMode.Single);
+        }
     }
 }

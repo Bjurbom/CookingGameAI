@@ -24,6 +24,7 @@ public class MachineInteraction : MonoBehaviour, Interaction
     SliceMiniGame sliceMinigame;
     [SerializeField]
     StewMiniGame stewMinigame;
+
     public void Interact()
     {
         if (AlreadyInteracted)

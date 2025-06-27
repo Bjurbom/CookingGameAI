@@ -9,10 +9,11 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] int amountOfIngredientRequierdToMake;
     bool startedGenerating = false;
     bool doneGenerating = false;
+    public bool HaveCake = false;
 
     private void Update()
     {
-        if (amountOfIngredientRequierdToMake <= ingriedientNames.Count && startedGenerating)
+        if (amountOfIngredientRequierdToMake <= ingriedientNames.Count && !startedGenerating)
         {
             startedGenerating = true;
             StartCoroutine("GeneratingImage");
@@ -24,6 +25,7 @@ public class PlayerInventory : MonoBehaviour
     {
         yield return new WaitForSeconds(10f); //Generate the image here
         Debug.Log("Done");
+        HaveCake = true;
         doneGenerating = true;
         ResetList();
         yield return null;

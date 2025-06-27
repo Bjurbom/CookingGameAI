@@ -22,7 +22,7 @@ public class LLMResponse { public List<LLMChoice> Choices; }
 
 //Data for Locally hosted stable diffusion
 [System.Serializable] 
-public class LocalSDRequest { public string prompt; public string negative_prompt = "blurry, bad art, poorly drawn, text, watermark, ugly, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of frame, extra limbs, disfigured, deformed, body out of frame, bad anatomy, signature"; public int steps = 25; public int width = 768; public int height = 512; public float cfg_scale = 7; public string sampler_name = "DPM++ 2M Karras"; }
+public class LocalSDRequest { public string prompt; public string negative_prompt = "blurry, bad art, poorly drawn, text, watermark, multiple objects"; public int steps = 25; public int width = 768; public int height = 512; public float cfg_scale = 7; public string sampler_name = "DPM++ 2M Karras"; }
 [System.Serializable]
 public class LocalSDResponse { public string[] images; }
 #endregion
@@ -31,7 +31,7 @@ public class CreativeCookv2 : MonoBehaviour
 {
     [Header ("API config")]
     [SerializeField] private string llmApiEndpoint = "http://127.0.0.1:11434/v1/chat/completions";
-    [SerializeField] private string llmModelName = "llama3.1";
+    [SerializeField] private string llmModelName = "gemma:2b";
     [SerializeField] private string imageGenApiEndpoint = "http://127.0.0.1:7860/sdapi/v1/txt2img";
 
     [Header("UI Elements")]
@@ -40,6 +40,7 @@ public class CreativeCookv2 : MonoBehaviour
     [SerializeField] private Text dishNameText;
     [SerializeField] private RawImage generatedImageDisplay;
     [SerializeField] private GameObject loadingIndicator;
+    [SerializeField] private Text dishDescription;
 
     [Header("Ingredient Buttons")]
     [Tooltip("Add all your ingredient buttons here.")]
@@ -128,7 +129,8 @@ public class CreativeCookv2 : MonoBehaviour
             return;
         }
 
-        
+        llmResponse = llmResponse.Trim().Trim('*');
+
         string dishName = "Unnamed Creation";
         string imagePrompt = "a strange dish";
         try
@@ -145,11 +147,12 @@ public class CreativeCookv2 : MonoBehaviour
         }
 
         dishNameText.text = dishName;
+        dishDescription.text = imagePrompt;
         Debug.Log($"LLM generated dish name: {dishName}");
         Debug.Log($"LLM generated image prompt: {imagePrompt}");
 
         
-        string finalImagePrompt = $"(photograph of: {imagePrompt}), food photography, cinematic lighting, hyperrealistic, 8k, masterpiece, on a rustic plate";
+        string finalImagePrompt = $"(photograph of: {imagePrompt}), minimalistic, on a single white plate with no background or a solid colour background";
         Texture2D generatedTexture = await GetGeneratedImage(finalImagePrompt);
 
         if (generatedTexture != null)

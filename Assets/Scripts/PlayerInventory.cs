@@ -9,7 +9,7 @@ public class PlayerInventory : MonoBehaviour
 
     [SerializeField] int amountOfIngredientRequierdToMake;
     bool startedGenerating = false;
-    bool doneGenerating = false;
+    public bool doneGenerating = false;
     public bool HaveCake = false;
 
     [SerializeField]
@@ -38,7 +38,6 @@ public class PlayerInventory : MonoBehaviour
         Task task = creativeCookv2.CookWithIngredients();
         yield return new WaitUntil(() => task.IsCompleted); ; //Generate the image here
         Debug.Log("Done");
-        HaveCake = true;
         doneGenerating = true;
         yield return null;
     }

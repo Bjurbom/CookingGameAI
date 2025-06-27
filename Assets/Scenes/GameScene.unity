@@ -345,8 +345,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingriedientNames: []
   amountOfIngredientRequierdToMake: 2
+  doneGenerating: 0
   HaveCake: 0
   creativeCookv2: {fileID: 1064028323}
+--- !u!1 &107237983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107237984}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &107237984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107237983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25, y: -0.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1714895776}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &114659633
 GameObject:
   m_ObjectHideFlags: 0
@@ -5673,6 +5705,7 @@ Transform:
   m_Children:
   - {fileID: 1298092190}
   - {fileID: 1679461026}
+  - {fileID: 107237984}
   m_Father: {fileID: 24135977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1714895777
@@ -5690,6 +5723,8 @@ MonoBehaviour:
   textInformation: {fileID: 1679461025}
   IngriedientPopUp: {fileID: 2071129408}
   textToDisplay: {fileID: 961115547}
+  ParticleEffect: {fileID: 606171943585198593, guid: e5c3219ae239fa7429fa323c63dd8e37, type: 3}
+  placementOfEffect: {fileID: 107237984}
   playOnce: 0
 --- !u!61 &1714895778
 BoxCollider2D:
@@ -5737,6 +5772,63 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.96218395, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &1738455342
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3342040837659622967, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.425922
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342040837659622967, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342040837659622967, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.05936157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342040837659622967, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342040837659622967, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342040837659622967, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342040837659622967, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342040837659622967, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342040837659622967, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342040837659622967, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983085355107801206, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
+      propertyPath: m_Name
+      value: SmokeFromStew
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1665ecea00d1cb644b350583b7b87a7b, type: 3}
 --- !u!1 &1792069372
 GameObject:
   m_ObjectHideFlags: 0
@@ -6165,6 +6257,7 @@ MonoBehaviour:
   sliceMinigame: {fileID: 1714895777}
   stewMinigame: {fileID: 338591576}
   displayCake: {fileID: 1207757212}
+  inventory: {fileID: 0}
 --- !u!1 &2108730094
 GameObject:
   m_ObjectHideFlags: 0
@@ -6211,3 +6304,4 @@ SceneRoots:
   - {fileID: 1925984919}
   - {fileID: 1064028324}
   - {fileID: 1207757216}
+  - {fileID: 1738455342}

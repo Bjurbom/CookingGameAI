@@ -481,6 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingriedientNames: []
   amountOfIngredientRequierdToMake: 2
+  startedGenerating: 0
   doneGenerating: 0
   HaveCake: 0
   creativeCookv2: {fileID: 1064028323}
@@ -651,7 +652,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: -149}
+  m_AnchoredPosition: {x: -7, y: -109}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131527229
@@ -3629,7 +3630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   llmApiEndpoint: http://127.0.0.1:11434/v1/chat/completions
-  llmModelName: gemma:2b
+  llmModelName: phi3:mini
   imageGenApiEndpoint: http://127.0.0.1:7860/sdapi/v1/txt2img
   cookButton: {fileID: 0}
   selectedIngredientsText: {fileID: 0}
@@ -4053,6 +4054,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closeButton: {fileID: 1618775331}
   CakeUI: {fileID: 1207757212}
+  Title: {fileID: 131527229}
+  Desc: {fileID: 495498269}
 --- !u!1 &1209541959
 GameObject:
   m_ObjectHideFlags: 0
@@ -4552,6 +4555,7 @@ MonoBehaviour:
   textBubble: {fileID: 1925984918}
   inventory: {fileID: 106298934}
   timeObject: {fileID: 984963453}
+  creativeCookv2: {fileID: 1064028323}
 --- !u!4 &1292593846
 Transform:
   m_ObjectHideFlags: 0

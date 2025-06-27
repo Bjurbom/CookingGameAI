@@ -981,7 +981,7 @@ MonoBehaviour:
   toHotAmount: 0
   justRight: 0
   coldDown: 0
-  stickAnimator: {fileID: 0}
+  stickAnimator: {fileID: 366426391}
   playOnce: 0
   barAmount: 0
 --- !u!61 &338591577

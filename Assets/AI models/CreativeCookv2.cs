@@ -142,10 +142,10 @@ public class CreativeCookv2 : MonoBehaviour
             return;
         }
 
-        //llmResponse = llmResponse.Trim().Trim('*');
+        llmResponse = llmResponse.Trim('*').Trim('*');
 
         string dishName = "Unnamed Creation";
-        string imagePrompt = "a strange dish";
+        string imagePrompt = "a dish";
         try
         {
             string[] parts = llmResponse.Split(new[] { "PROMPT:" }, StringSplitOptions.None);

@@ -64,6 +64,7 @@ public class MachineInteraction : MonoBehaviour, Interaction
         yield return new WaitForSeconds(Random.Range(0.5f, 1f));
         textObject.text = "Done";
         displayCake.SetActive(true);
+
         yield return new WaitForSeconds(Random.Range(0.5f, 1f));
         
         textObject.text = "Start";

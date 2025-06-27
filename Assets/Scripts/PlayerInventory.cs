@@ -18,6 +18,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddIngredient(string nameOfIng)
     {
+        ingriedientNames.Add(nameOfIng);
         creativeCookv2.currentIngredients.Add(nameOfIng, 1);
     }
 

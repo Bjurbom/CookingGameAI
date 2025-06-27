@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using System.Text;
 using System;
 using System.Collections.Generic;
-using System.Linq; //used for string.join
+using System.Linq;
+using TMPro; //used for string.join
 
 //TODO - Add a text box for the food description genereated by the LLM
 
@@ -37,10 +38,10 @@ public class CreativeCookv2 : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private Button cookButton;
     [SerializeField] private Text selectedIngredientsText;
-    [SerializeField] private Text dishNameText;
+    [SerializeField] private TMP_Text dishNameText;
     [SerializeField] private RawImage generatedImageDisplay;
     [SerializeField] private GameObject loadingIndicator;
-    [SerializeField] private Text dishDescription;
+    [SerializeField] private TMP_Text dishDescription;
 
     [Header("Dish Preview")]
     [SerializeField] private GameObject previewPannel;
@@ -124,7 +125,7 @@ public class CreativeCookv2 : MonoBehaviour
             return;
         }
 
-        SetUIState(isGenerating: true);
+        //SetUIState(isGenerating: true);
 
         //formats dictionary into a text string for prompt
         var formattedIngredients = currentIngredients.Select(kvp => $"{kvp.Key} (quantity: {kvp.Value})");
@@ -169,7 +170,7 @@ public class CreativeCookv2 : MonoBehaviour
         if (generatedTexture != null)
         {
             //float aspectRatio = (float)generatedTexture.width / (float)generatedTexture.height;
-            //generatedImageDisplay.texture = generatedTexture;
+            generatedImageDisplay.texture = generatedTexture;
 
             if (dishDisplay2D != null)
             {
@@ -184,7 +185,7 @@ public class CreativeCookv2 : MonoBehaviour
             Debug.LogError("Failed to generate image.");
         }
 
-        SetUIState(isGenerating: false);
+        //SetUIState(isGenerating: false);
     }
 
     public void ShowDishPreview(Texture2D texture)

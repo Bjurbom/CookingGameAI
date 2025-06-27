@@ -25,6 +25,9 @@ public class MachineInteraction : MonoBehaviour, Interaction
     [SerializeField]
     StewMiniGame stewMinigame;
 
+    [SerializeField]
+    GameObject displayCake;
+
     public void Interact()
     {
         if (AlreadyInteracted)
@@ -60,7 +63,7 @@ public class MachineInteraction : MonoBehaviour, Interaction
         RenderText();
         yield return new WaitForSeconds(Random.Range(0.5f, 1f));
         textObject.text = "Done";
-        //Spawn the Object Here
+        displayCake.SetActive(true);
         yield return new WaitForSeconds(Random.Range(0.5f, 1f));
         
         textObject.text = "Start";

@@ -19,7 +19,7 @@ public class ConfirmIngriedient : MonoBehaviour
     }
     public void ButtonPres()
     {
-        playerInventory.ingriedientNames.Add(input.text.ToLower());
+        playerInventory.AddIngredient(input.text.ToLower());
         input.text = "";
         Time.timeScale = 1.0f;
     }

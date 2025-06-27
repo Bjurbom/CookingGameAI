@@ -4,6 +4,7 @@ using UnityEngine;
 
 interface Interaction
 {
+    bool startGame = false;
     public void Interact();
 }
 
@@ -48,8 +49,13 @@ public class MachineInteraction : MonoBehaviour, Interaction
         }
         else
         {
-            currentAmountOfMoney += 1;
-            inventory.ingriedientNames.RemoveAt(0);
+            
+            if (inventory.ingriedientNames.Count != 0)
+            {
+                currentAmountOfMoney += 1;
+                inventory.ingriedientNames.RemoveAt(0);
+            }
+            
             if (currentAmountOfMoney >= amountOfIngredientNeeded)
             {
                 AlreadyInteracted = true;

@@ -131,9 +131,9 @@ public class CreativeCookv2 : MonoBehaviour
         //formats dictionary into a text string for prompt
         var formattedIngredients = currentIngredients.Select(kvp => $"{kvp.Key} (quantity: {kvp.Value})");
         string ingredientsListString = string.Join(", ", formattedIngredients);
-        string llmPrompt = $"Create a short, fantastical, and appetizing cake name and a separate, short, visual descriptive prompt for an image generation AI that decribes the flavour of the dish, the description must be less than 15 words in length. The dish must be based on the following ingredients: {ingredientsListString}. Use the format: NAME: [Dish Name] PROMPT: [Visual Description]";
+        string llmPrompt = $"Create a cake name and a short visual descriptive prompt for an image generation AI that decribes the flavour of the cake, the description must be less than 10 words in length at all times. The dish must be based on the following ingredients: {ingredientsListString}. Use the format: NAME: [Dish Name] PROMPT: [Visual Description]";
 
-        string llmResponse = await SendChatRequest("You are a master cake maker.", llmPrompt);
+        string llmResponse = await SendChatRequest("You are a master cheif maker.", llmPrompt);
 
         if (string.IsNullOrEmpty(llmResponse))
         {

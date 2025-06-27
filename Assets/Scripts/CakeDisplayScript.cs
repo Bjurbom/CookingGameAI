@@ -23,8 +23,8 @@ public class CakeDisplayScript : MonoBehaviour
     public void CloseWindow()
     {
         CakeUI.SetActive(false);
-        Title.text = "";
-        Desc.text = "";
+        //Title.text = "";
+        //Desc.text = "";
         Time.timeScale = 1;
     }
 }

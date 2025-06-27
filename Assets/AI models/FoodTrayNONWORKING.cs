@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class FoodTray : MonoBehaviour
 {
@@ -34,4 +34,4 @@ public class FoodTray : MonoBehaviour
             CreativeCook.ShowDishPreview(dishTexture);
         }
     }
-}
+}*/

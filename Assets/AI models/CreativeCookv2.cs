@@ -62,7 +62,7 @@ public class CreativeCookv2 : MonoBehaviour
     {
         // Setup button listeners
         //cookButton?.onClick.AddListener(CookWithIngredients);
-        closePreview?.onClick.AddListener(HideDishPreview);
+        //closePreview?.onClick.AddListener(HideDishPreview);
 
         foreach (var button in ingredientButtons)
         {
@@ -95,12 +95,13 @@ public class CreativeCookv2 : MonoBehaviour
     public void ClearIngredients()
     {
         currentIngredients.Clear();
-        UpdateIngredientListUI();
-        dishNameText.text = "Awaiting new creation...";
+        //UpdateIngredientListUI();
+        //dishNameText.text = "Awaiting new creation...";
         generatedImageDisplay.texture = null;
+
     }
 
-    private void UpdateIngredientListUI()
+    /*private void UpdateIngredientListUI()
     {
         if (currentIngredients.Count == 0)
         {
@@ -115,7 +116,7 @@ public class CreativeCookv2 : MonoBehaviour
             selectedIngredientsText.text = string.Join(", ", formattedIngredients);
             selectedIngredientsText.gameObject.SetActive(true);
         }
-    }
+    }*/
 
     public async Task CookWithIngredients()
     {
@@ -141,7 +142,7 @@ public class CreativeCookv2 : MonoBehaviour
             return;
         }
 
-        llmResponse = llmResponse.Trim().Trim('*');
+        //llmResponse = llmResponse.Trim().Trim('*');
 
         string dishName = "Unnamed Creation";
         string imagePrompt = "a strange dish";
@@ -188,22 +189,22 @@ public class CreativeCookv2 : MonoBehaviour
         //SetUIState(isGenerating: false);
     }
 
-    public void ShowDishPreview(Texture2D texture)
-    {
-        if (previewPannel != null && previewImage != null)
-        {
-            previewImage.texture = texture;
-            previewPannel.SetActive(true);
-        }
-    }
+    //public void ShowDishPreview(Texture2D texture)
+    //{
+    //    if (previewPannel != null && previewImage != null)
+    //    {
+    //        previewImage.texture = texture;
+    //        previewPannel.SetActive(true);
+    //    }
+    //}
 
-    private void HideDishPreview()
-    {
-        if(previewPannel != null)
-        {
-            previewPannel.SetActive(false);
-        }
-    }
+    //private void HideDishPreview()
+    //{
+    //    if(previewPannel != null)
+    //    {
+    //        previewPannel.SetActive(false);
+    //    }
+    //}
 
     #region API Communication Methods
     private async Task<string> SendChatRequest(string systemMessage, string userMessage)

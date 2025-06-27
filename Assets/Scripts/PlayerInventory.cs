@@ -28,6 +28,7 @@ public class PlayerInventory : MonoBehaviour
         if (amountOfIngredientRequierdToMake <= ingriedientNames.Count && !startedGenerating)
         {
             startedGenerating = true;
+            doneGenerating = false;
             StartCoroutine("GeneratingImage");
             Debug.Log("Generating");
         }
@@ -39,6 +40,7 @@ public class PlayerInventory : MonoBehaviour
         yield return new WaitUntil(() => task.IsCompleted); ; //Generate the image here
         Debug.Log("Done");
         doneGenerating = true;
+        startedGenerating = false;
         yield return null;
     }
 

@@ -4051,7 +4051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ac3fe54a29f56498d85f6be624ea07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeButton: {fileID: 0}
+  closeButton: {fileID: 1618775331}
   CakeUI: {fileID: 1207757212}
 --- !u!1 &1209541959
 GameObject:

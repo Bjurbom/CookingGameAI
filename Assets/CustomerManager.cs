@@ -15,6 +15,9 @@ public class CustomerManager : MonoBehaviour, Interaction
     [SerializeField]
     TimeScript timeObject;
 
+    [SerializeField]
+    CreativeCookv2 creativeCookv2;
+
     bool isShowing = false;
     public void Interact()
     {
@@ -22,6 +25,7 @@ public class CustomerManager : MonoBehaviour, Interaction
         {
             timeObject.AddTime(Random.Range(10f,30f));
             inventory.HaveCake = false;
+            creativeCookv2.ClearIngredients();
             customerObject.GetComponent<Animator>().SetTrigger("NewCustomer");
         }
         else

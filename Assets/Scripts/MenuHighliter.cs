@@ -41,6 +41,12 @@ public class MenuHighliter : MonoBehaviour
         currentScaleCoroutine = StartCoroutine(ScaleButton(originalScale));
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+
 
     private IEnumerator ScaleButton(Vector3 targetScale)
     {

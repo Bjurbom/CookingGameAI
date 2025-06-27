@@ -62,6 +62,7 @@ public class MachineInteraction : MonoBehaviour, Interaction
         textObject.text = "Done";
         //Spawn the Object Here
         yield return new WaitForSeconds(Random.Range(0.5f, 1f));
+        
         textObject.text = "Start";
         currentAmountOfMoney = 0;
         stewMinigame.playOnce = false;

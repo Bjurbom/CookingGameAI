@@ -20,7 +20,7 @@ public class SliceMiniGame : MonoBehaviour, Interaction
     int amountOfPresses;
     float timeWhenStarted;
     public bool playOnce = false;
-    int chopAmount = 100;
+    int chopAmount = 130;
     public void Interact()
     {
         if (playOnce) {

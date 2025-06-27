@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class PlayerController : MonoBehaviour
         if (!WorldState.animationDone)
         {
             return;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            SceneManager.LoadScene("SampleScene");
         }
 
 

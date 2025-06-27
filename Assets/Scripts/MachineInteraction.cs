@@ -28,6 +28,9 @@ public class MachineInteraction : MonoBehaviour, Interaction
     [SerializeField]
     GameObject displayCake;
 
+    [SerializeField]
+    PlayerInventory inventory;
+
     public void Interact()
     {
         if (AlreadyInteracted)
@@ -65,8 +68,14 @@ public class MachineInteraction : MonoBehaviour, Interaction
         textObject.text = "Done";
         displayCake.SetActive(true);
 
+        while (!inventory.doneGenerating)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+
+
         yield return new WaitForSeconds(Random.Range(0.5f, 1f));
-        
+        inventory.HaveCake = true;
         textObject.text = "Start";
         currentAmountOfMoney = 0;
         stewMinigame.playOnce = false;

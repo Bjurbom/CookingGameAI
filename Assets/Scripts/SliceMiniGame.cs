@@ -12,6 +12,11 @@ public class SliceMiniGame : MonoBehaviour, Interaction
     GameObject IngriedientPopUp;
     [SerializeField]
     TMP_Text textToDisplay;
+    [SerializeField]
+    GameObject ParticleEffect;
+    [SerializeField]
+    Transform placementOfEffect;
+
     int amountOfPresses;
     float timeWhenStarted;
     public bool playOnce = false;
@@ -47,6 +52,7 @@ public class SliceMiniGame : MonoBehaviour, Interaction
         if (Input.GetKeyDown(KeyCode.P)) 
         {
             amountOfPresses++;
+            Instantiate(ParticleEffect, placementOfEffect);
         }
 
         int amountOfChopsLeft = chopAmount - amountOfPresses;

@@ -19,6 +19,7 @@ public class StewMiniGameSystem : MonoBehaviour
     public void Start()
     {
         rounds = 2;
+        Over = false;
     }
 
     private void Generate()

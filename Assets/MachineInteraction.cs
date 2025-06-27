@@ -20,8 +20,10 @@ public class MachineInteraction : MonoBehaviour, Interaction
     int amountOfIngredientNeeded = 3;
     int currentAmountOfMoney = 0;
 
-
-
+    [SerializeField]
+    SliceMiniGame sliceMinigame;
+    [SerializeField]
+    StewMiniGame stewMinigame;
     public void Interact()
     {
         if (AlreadyInteracted)
@@ -61,6 +63,8 @@ public class MachineInteraction : MonoBehaviour, Interaction
         yield return new WaitForSeconds(Random.Range(0.5f, 1f));
         textObject.text = "Start";
         currentAmountOfMoney = 0;
+        stewMinigame.playOnce = false;
+        sliceMinigame.playOnce = false;
         firstInteraction = true;
         AlreadyInteracted = false;
 

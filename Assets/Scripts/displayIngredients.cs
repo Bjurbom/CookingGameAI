@@ -17,7 +17,7 @@ public class displayIngredients : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textString = "Ingriedents:\n";
+        textString = "ingredients:\n";
         foreach (var item in playerInventory.ingriedientNames)
         {
             textString += (item + "\n");

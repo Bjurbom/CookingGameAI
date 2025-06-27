@@ -19,6 +19,11 @@ public class PlayerInventory : MonoBehaviour
             StartCoroutine("GeneratingImage");
             Debug.Log("Generating");
         }
+
+        if (HaveCake)
+        {
+            ResetList();
+        }
     }
 
     IEnumerator GeneratingImage()
@@ -27,7 +32,6 @@ public class PlayerInventory : MonoBehaviour
         Debug.Log("Done");
         HaveCake = true;
         doneGenerating = true;
-        ResetList();
         yield return null;
     }
 

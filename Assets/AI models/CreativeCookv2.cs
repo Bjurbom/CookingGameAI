@@ -22,7 +22,7 @@ public class LLMResponse { public List<LLMChoice> Choices; }
 
 //Data for Locally hosted stable diffusion
 [System.Serializable] 
-public class LocalSDRequest { public string prompt; public string negative_prompt = "blurry, bad art, poorly drawn, text, watermark, multiple objects"; public int steps = 25; public int width = 768; public int height = 512; public float cfg_scale = 7; public string sampler_name = "DPM++ 2M Karras"; }
+public class LocalSDRequest { public string prompt; public string negative_prompt = "blurry, bad art, poorly drawn, text, watermark, multiple objects"; public int steps = 25; public int width = 180; public int height = 180; public float cfg_scale = 7; public string sampler_name = "DPM++ 2M Karras"; }
 [System.Serializable]
 public class LocalSDResponse { public string[] images; }
 #endregion
@@ -42,6 +42,15 @@ public class CreativeCookv2 : MonoBehaviour
     [SerializeField] private GameObject loadingIndicator;
     [SerializeField] private Text dishDescription;
 
+    [Header("Dish Preview")]
+    [SerializeField] private GameObject previewPannel;
+    [SerializeField] private RawImage previewImage;
+    [SerializeField] private Button closePreview;
+
+    [Header("Dish display")]
+    [Tooltip("2D object with a sprite renderer")]
+    [SerializeField] private SpriteRenderer dishDisplay2D;
+
     [Header("Ingredient Buttons")]
     [Tooltip("Add all your ingredient buttons here.")]
     [SerializeField] private Button[] ingredientButtons;
@@ -52,6 +61,8 @@ public class CreativeCookv2 : MonoBehaviour
     {
         // Setup button listeners
         cookButton.onClick.AddListener(CookWithIngredients);
+        closePreview.onClick.AddListener(HideDishPreview);
+
         foreach (var button in ingredientButtons)
         {
             // Get the ingredient name from the button's text component
@@ -118,9 +129,9 @@ public class CreativeCookv2 : MonoBehaviour
         //formats dictionary into a text string for prompt
         var formattedIngredients = currentIngredients.Select(kvp => $"{kvp.Key} (quantity: {kvp.Value})");
         string ingredientsListString = string.Join(", ", formattedIngredients);
-        string llmPrompt = $"Create a short, fantastical, and appetizing dish name and a separate, brief, visually descriptive prompt for an image generation AI. The dish must be based on the following ingredients: {ingredientsListString}. Use the format: NAME: [Dish Name] PROMPT: [Visual Description]";
+        string llmPrompt = $"Create a short, fantastical, and appetizing cake name and a separate, short, visual descriptive prompt for an image generation AI that decribes the flavour of the dish, the description must be less than 15 words in length. The dish must be based on the following ingredients: {ingredientsListString}. Use the format: NAME: [Dish Name] PROMPT: [Visual Description]";
 
-        string llmResponse = await SendChatRequest("You are a master chef from a fantasy world.", llmPrompt);
+        string llmResponse = await SendChatRequest("You are a master cake maker.", llmPrompt);
 
         if (string.IsNullOrEmpty(llmResponse))
         {
@@ -157,7 +168,16 @@ public class CreativeCookv2 : MonoBehaviour
 
         if (generatedTexture != null)
         {
-            generatedImageDisplay.texture = generatedTexture;
+            //float aspectRatio = (float)generatedTexture.width / (float)generatedTexture.height;
+            //generatedImageDisplay.texture = generatedTexture;
+
+            if (dishDisplay2D != null)
+            {
+                Rect rect = new Rect(0, 0, generatedTexture.width, generatedTexture.height);
+                Vector2 pivot = new Vector2(0.5f, 0.5f);
+                Sprite newSprite = Sprite.Create(generatedTexture, rect, pivot);
+                dishDisplay2D.sprite = newSprite;
+            }
         }
         else
         {
@@ -165,6 +185,23 @@ public class CreativeCookv2 : MonoBehaviour
         }
 
         SetUIState(isGenerating: false);
+    }
+
+    public void ShowDishPreview(Texture2D texture)
+    {
+        if (previewPannel != null && previewImage != null)
+        {
+            previewImage.texture = texture;
+            previewPannel.SetActive(true);
+        }
+    }
+
+    private void HideDishPreview()
+    {
+        if(previewPannel != null)
+        {
+            previewPannel.SetActive(false);
+        }
     }
 
     #region API Communication Methods

@@ -49,6 +49,7 @@ public class MachineInteraction : MonoBehaviour, Interaction
         else
         {
             currentAmountOfMoney += 1;
+            inventory.ingriedientNames.RemoveAt(0);
             if (currentAmountOfMoney >= amountOfIngredientNeeded)
             {
                 AlreadyInteracted = true;

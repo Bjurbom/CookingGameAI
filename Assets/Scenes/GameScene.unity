@@ -241,7 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 106298928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0aeb5e81a2c45841965b21ea311ab5e, type: 3}
+  m_Script: {fileID: 11500000, guid: d489d4e373695544ab51c434cafca67a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
@@ -345,6 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingriedientNames: []
   amountOfIngredientRequierdToMake: 2
+  doneGenerating: 0
   HaveCake: 0
   creativeCookv2: {fileID: 1064028323}
 --- !u!1 &114659633
@@ -4639,6 +4640,37 @@ Transform:
   - {fileID: 1233372777}
   m_Father: {fileID: 1870257476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1517526643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517526644}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517526644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517526643}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.24, y: -0.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1714895776}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1679461025
 GameObject:
   m_ObjectHideFlags: 0
@@ -4933,6 +4965,7 @@ Transform:
   m_Children:
   - {fileID: 1298092190}
   - {fileID: 1679461026}
+  - {fileID: 1517526644}
   m_Father: {fileID: 24135977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1714895777
@@ -4950,6 +4983,8 @@ MonoBehaviour:
   textInformation: {fileID: 1679461025}
   IngriedientPopUp: {fileID: 2071129408}
   textToDisplay: {fileID: 961115547}
+  ParticleEffect: {fileID: 606171943585198593, guid: e5c3219ae239fa7429fa323c63dd8e37, type: 3}
+  placementOfEffect: {fileID: 1517526644}
   playOnce: 0
 --- !u!61 &1714895778
 BoxCollider2D:
@@ -5424,6 +5459,8 @@ MonoBehaviour:
   amountOfIngredientNeeded: 2
   sliceMinigame: {fileID: 1714895777}
   stewMinigame: {fileID: 338591576}
+  displayCake: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!1 &2108730094
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,6 @@ using UnityEngine;
 
 interface Interaction
 {
-    bool startGame = false;
     public void Interact();
 }
 
